@@ -1,0 +1,128 @@
+.about-page {
+  position: relative;
+  min-height: calc(100vh - 64px); /* Accounting for navbar */
+  padding: 2rem;
+  overflow-x: hidden;
+  background: rgba(144, 238, 144, 0.2); /* Light mint background */
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.about-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  height: fit-content;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+}
+
+.feature-card h2 {
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.important-notice {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-left: 4px solid #ff6b6b;
+  margin-top: 1rem;
+}
+
+.important-notice ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.important-notice li {
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.about-background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1rem;
+  }
+
+  .about-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 0.75rem;
+  }
+
+  .about-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+} 

@@ -1,14 +1,58 @@
-<h1 align="center"><a href="https://workout-mate.onrender.com/">Workout Mate</a></h1>
-<br>
-<div align="center"><img src="https://i.imgur.com/eLR4kIs.gif" alt="logging in to workout mate" /></div> 
-<br>
-<p align="center"> <i>
-Workout Mate is there for you when you need to keep track of your physical activity. 
-It lets you submit exercise whenever you want and without any real-life relevance if that's what you prefer.
-Workout Mate doesn't judge.
-Workout Mate lets you be the athlete you want to be.</i>
-</p>
-<br>
+# Workout Mate
+
+A simple fitness tracking app that lets you log and monitor your workouts.
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm start
+```
+
+## Database Setup
+1. Create initial tables:
+```sql
+CREATE TABLE wm_users (
+    _id INT8 PRIMARY KEY, 
+    created_at TIMESTAMPTZ DEFAULT (now()), 
+    email TEXT, 
+    password TEXT, 
+    username TEXT, 
+    profile_image TEXT,
+    account_status TEXT DEFAULT ('pending')
+);
+
+CREATE TABLE account_confirmation (
+    id INT8 PRIMARY KEY, 
+    user_id INT8,
+    token TEXT,
+    expires TIMESTAMPTZ DEFAULT (now() + '1 day'::interval)
+);
+
+CREATE TABLE password_reset (
+    id INT8 PRIMARY KEY, 
+    user_id INT8,
+    token TEXT,
+    expires TIMESTAMPTZ DEFAULT (now() + '1 day'::interval)
+);
+```
+
+2. Fix user ID column for proper auto-increment:
+```sql
+ALTER TABLE wm_users DROP COLUMN _id;
+ALTER TABLE wm_users ADD COLUMN _id SERIAL PRIMARY KEY;
+```
+
+## Features
+- Track workouts and exercises
+- No judgement, your space your rules
+- Simple and intuitive interface
+
+## Note
+This is a demo app with limited storage capacity. Older entries may be automatically removed.
 
 ---
 
